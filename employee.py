@@ -1,6 +1,6 @@
 from person import * 
 from datetime import date
-import xlsxwriter
+#import xlsxwriter
 from openpyxl import Workbook
 class Employee(Person):
 
@@ -108,21 +108,7 @@ class Employee(Person):
         for employee in Employee.employees_information:
             if salary_from <= employee[3] <= salary_to:
                 result.append(employee)
-                return result
-
-        ask_user_for_save = input("Do you want to save the information? in excel file (y/n) : ")
-        if ask_user_for_save == 'y':
-            with xlsxwriter.Workbook('salary_search.xlsx') as workbook:
-                worksheet = workbook.add_worksheet()
-            workbook.add_worksheet()
-            print("print")
-            for row_num, data in enumerate(result):
-                worksheet = workbook.add_row(row_num ,0, data)
-                worksheet = workbook.write_row(row_num, 0, data)
-                print('information has been saved in excel file it name \"salary_search\"'.upper())
-            worksheet.close()
         return result
-
     def search_by_position(self,position:str):
         result = []
         for employee in Employee.employees_information:
@@ -141,7 +127,7 @@ class Employee(Person):
 
         searching=True
         while searching:
-            user_answer=input("Do you want to search by 1-id,2-employee id,3-name,4-salary_from-to,5-position,6-gender,7-exit : ")
+            user_answer=input("Do you want to search by 1-id 2-employee id 3-name 4-salary from-to 5-position 6-gender or enter exit : ")
             if user_answer == '1':
                 id = input("Enter the national id: ")
                 search_id = self.search_by_id(id)
@@ -161,12 +147,14 @@ class Employee(Person):
                 print(f'result of salary search : {search_salary}\n'.upper())
                 ask_user_for_save = input("Do you want to save the information? in excel file (y/n) : ")
                 if ask_user_for_save == 'y':
+                    file_name = input("Just Enter the file name don\'t write extend : ")
+                    file_name+='.xlsx'
                     wb = Workbook() # creates a workbook object.
                     ws = wb.active # creates a worksheet object.
                     for row in search_salary:
-                        ws.append(row) # adds values to cells, each list is a new row.
-                    wb.save('salary_search.xlsx') # save to excel file.
-                    print('information has been saved in excel file'.upper())
+                        ws.append(row) # adds values to cells, each list is a new row. 
+                    wb.save(file_name) # save to excel file.
+                    print(f'information has been saved in excel file it\'s name {file_name}'.upper()+'.xlsx')
 
             elif user_answer == '5':
                 position = input("Enter the position: ")
@@ -181,10 +169,3 @@ class Employee(Person):
             else:
                 print("Invalid input choose from this list")
                 user_answer=input("Re-Enter 1-id,2-employee id,3-name,4-salary_from-to,5-position,6-gender")
-
-
-
-
-    # def pension_salary(self):
-    #     pension_salary = self.get_salary() * self.get_service_month() / 480
-    #     return pension_salary
