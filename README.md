@@ -1,43 +1,42 @@
-# UNIT-1_PROJECT
+Employee Management System
+Overview
+A command-line interface (CLI) program that allows users to manage employee information and search for salaries.
+The system has two main users: the Employee and the Manager.
+Each of them can perform several tasks to manage employee data effectively.
 
-## Based on what you’ve learned until now , create a project of your choosing (impress us with your imagination) . This project must at least satisfy the following minimum requirements :
+As an employee, I should be able to:
+View my personal information.
 
-- Must be interactive on CLI.
-- Use lists or dictionaries or tuples. 
-- Use loops.
-- Use functions that return an output . 
-- Use a Lambda function.
-- Use at least 1 Class.
-- Use some form of Error Handling .
-- Organize Your Code into modules & (or packages)
+Search for my salary based on my name or ID.
 
-## Example Project :  An online Grocery Store :
+Update my contact details.
 
-#### Overview : An online store that sells fruits to customers. This online store has 2 main users. The customer and the manager of the store . Each one of them should be able to do the following tasks for the store to function properly . 
+As a manager, I should be able to:
+Add a new employee.
 
-#### As a customer I should be able to do the following :
-- Browse  Products . 
-- View the product info (summary, specs, price, quantity , etc.)
-- Search for Products.
-- Get recommendations for my next purchase based on my purchase history.
-- Add Products to the shopping cart .
-- Remove a product from the shopping cart.
-- List the products in my shopping cart. 
-- Continue to checkout . 
-- Fill in my address for delivery.
-- Get receipt of my purchases.
-- Check delivery status . 
+View all employees.
 
+Search for an employee.
 
+Update employee information.
 
-#### Usage :
- Explain to the user how to use your project . 
- for example:
- - type in search product_name to search for a product.
- - type in list_products to show all the products in the grocery.
- - type in show product_name to get information about this product.
- - type in buy product_name to buy the product . 
- - and so on...
+Remove an employee from the system.
 
+Export salary reports.
 
-### For your project. Edit this README.md file to include your own project name,  overview, user stories, and usage. 
+Usage
+Explain to the user how to use your project. For example:
+
+Type view_all_employees to list all employees.
+
+Type add_employee to add a new employee to the system.
+
+Type search_employee employee_name to search for an employee.
+
+Type update_employee employee_id to update employee details.
+
+Type remove_employee employee_id to delete an employee.
+
+Type search_salary employee_name to find the salary of an employee.
+
+and so on...
